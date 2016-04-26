@@ -7,19 +7,17 @@ window.onload = function() {
     var socketStatus = document.getElementById('status');
     var btnFechar = document.getElementById('close');
 
-
     // Criando uma nova WebSocket.
     var wsServer = 'ws://echo.websocket.org';
     var socket = new WebSocket(wsServer);
 
     // segurando os erros que ocorrerem.
     socket.onerror = function(error) {
-        console.log('erros do WebSocket: ' + error);
+        alert('erros do WebSocket: ' + error);
     };
 
     // Mostrando a mensagem de Conectado quando o WebSocket for aberto.
     socket.onopen = function(event) {
-        alert(JSON.stringify(socket));
         socketStatus.innerHTML = 'Conectado com: ' + wsServer;
         socketStatus.className = 'open';
     };
